@@ -1,8 +1,11 @@
 include c51ed2.inc
 
+; cache input
+mov R4, P1
+
 ; P1 < 100
 mov     a,#156
-add     a,P1
+add     a,R4
 jc      yello
 
 ; set green
@@ -12,13 +15,13 @@ ljmp 0x0 ; go back to start
 
 yello:
 ; P1 > 100
-mov     a,P1
+mov     a,R4
 add     a,#156
 jnc     red
 
 ; P1 < 150
 mov     a,#106
-add     a,P1
+add     a,R4
 jc      red
 
 ; set yello
@@ -28,7 +31,7 @@ ljmp 0x0 ; go back to start
 
 red:
 ; P1 > 150
-mov     a,P1
+mov     a,R4
 add     a,#156
 jnc     0x0 ; go back to start
 
