@@ -27,13 +27,13 @@ jc      red  ; skip if false
 ; set yello
 mov     P2, #0
 setb    P2.1
-ljmp 0x0 ; go back to start if false
+ljmp 0x0 ; go back to start
 
 red:
 ; P1 > 150
 mov     a,R4
 add     a,#156
-jnc     0x0 ; go back to start
+jnc     0x0 ; go back to start if false
 
 ; set red, delay, and clear.
 mov     P2, #0
